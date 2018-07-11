@@ -5,33 +5,35 @@ layout: default
 {%- assign date_format = site.minima.date_format | default: "%-d %b %Y " -%}
 
 <div class="page">
+	<div class="active-tags-box" style="display: true; position: fixed; margin-top: 1vh; margin-left: 1vh; width: 14vw; height: 14vw; background-color: #ffffff; border: solid; border-width: 1px; border-color: #dfdfdf; border-radius: 10px;"><div class="active-tags" style="margin-top:14px;margin-left:7px;font-size:85%;line-height:0px;"><p>Active Tags:</p></div>
+	</div>
 	<div class="page-content">
+		<div><h2>{{ page.title }}</h2></div>
 		{{ content }}
-
 		<div class="container">
-			<div class="row">
+			<div class="row posts">
 				{% for post in site.posts %}
-					<div class="col-sm-12 py-2">
-						<div class="card h-100 card-body">
-							{%- if post.cover -%}
-								<a class="card" href="{{ post.url | absolute_url }}"><img class="cover" src="{{ post.cover }}"></a>
-							{%- endif -%}
-			  				<a class="link" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
-			  				<a class="metaData" style="font-size: 85%; line-height: 85%;">{{ post.date | date: date_format }} {%- if post.author -%} — {{ post.author }} {%- endif -%}</a>
-							{%- if post.excerpt -%}
-								<a class="excerpt" style="margin-top: 4px;">{{ post.excerpt }}</a>
-							{%- endif -%}
-							<div class="tag-container" style="color: #777;">
-								{%- if post.tags.size > 0 -%}
-									<span class="tags" style="display: inline;">tags: </span>
-									{%- for tag in post.tags -%}
-										<span class="tag" style="display: inline;"><a href="/tag/{{ tag }}.html">{{ tag }} </a></span>
-									{%- endfor -%}
-								{%- endif -%}
-							</div>
-			  			</div>
-			  		</div>
-			  	{%- endfor -%}
+				<div class="{% for tag in post.tags %}{{ tag }} {% endfor %}col-sm-12 py-2">
+					<div id="post" class="card h-100 card-body">
+						{%- if post.cover -%}
+						<a class="card" href="{{ post.url | absolute_url }}"><img class="cover" src="{{ post.cover }}"></a>
+						{%- endif -%}
+						<a class="link" href="{{ post.url | absolute_url }}" style="font-size: 115%">{{ post.title }}</a>
+						<a class="metaData" style="font-size: 85%; line-height: 85%;">{{ post.date | date: date_format }} {%- if post.author -%} — {{ post.author }} {%- endif -%}</a>
+						{%- if post.excerpt -%}
+						<a class="excerpt" style="margin-top: 4px;">{{ post.excerpt }}</a>
+						{%- endif -%}
+						<div class="tag-container" style="display: inline; font-size: 85%; color: #777;"> 
+							{% if post.tags.size > 0 %}
+							tags: 
+							{% for tag in post.tags %}
+							<span id="tag" value="{{ tag }}">{{ tag }}</span><a> </a>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				{%- endfor -%}
 			</div>
 		</div>
 	</div>
