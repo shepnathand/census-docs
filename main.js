@@ -5,6 +5,7 @@ $(document).ready(function() {
 
         if (value.length > 0) { // if somethings' selected
             elements.filter('.' + value).show(); // show the ones we want
+            $("div h2").text('Posts tagged "'+value+'"');
         }
     }).trigger('change');
 
