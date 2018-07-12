@@ -17,25 +17,6 @@ background-color: #ffffff;
 z-index: 2;
 }
 
-.active-tag-filters {
-p {
-margin-top: 10px;
-margin-left: 7px;
-}
-ul {
-	margin-left: -21px;
-}
-position: fixed;
-top: 65px;
-left: 10px;
-width: 18vw;
-height: 18vw;
-border: solid;
-border-width: 1px;
-border-color: darken(#dfdfdf,10%);
-line-height: 7px;
-}
-
 #tag {
 border:solid;
 border-width:1px;
@@ -43,6 +24,7 @@ border-color:#dfdfdf;
 background-color:#dfdfdf;
 border-radius:5px;
 padding:2px;
+cursor:pointer;
 }
 
 .bar1 {
