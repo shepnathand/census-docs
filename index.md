@@ -28,8 +28,9 @@ Also, if you think you might make more than 500 requests per day, you are going 
 ### What's Next?
 Where you go after reading the API Documentation and getting an API Key depends on how you intend to use the data. Here are some places you might want to check out:
 
+  + [Available API's: Find the data you want.](https://www.census.gov/data/developers/data-sets.html)
   + [Request Builder: Help building your first request.](/request-builder/)
-  + [API Wrapers: Some clean ways to download the data.](/api-wrapers/)
+  + [API Wrapers: Some clean ways to download the data.](/wrapers/)
   + [Mapping: Tutorials on creating maps with ACS data.](/mapping/)
   + [Website Integration: How to integrate data from the API into your website.](/web-integration/)
 

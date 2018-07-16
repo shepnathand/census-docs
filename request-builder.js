@@ -20,6 +20,7 @@ $(document).ready(function() {
   $('.third-level-select').bind('change', function() {
       var elements = $('div.third-level-container').children().hide(); // hide all the elements
       var value = $(this).val();
+      console.log($(this).val());
 
       if (value.length > 0) { // if somethings' selected
           elements.filter('.' + value).show(); // show the ones we want
