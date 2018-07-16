@@ -2,7 +2,6 @@
 layout: page
 title: Request Builder
 permalink: /request-builder/
-role: tool
 ---
 
 <select size="1" id="Dataset" title="" name="Dataset">
