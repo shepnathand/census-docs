@@ -42,7 +42,7 @@ role: resource
     <div class="Social" style="display: none;">
         <select class="third-level-select">
             <option value="">Select a subject</option>
-            <option value="HOUSEHOLDS BY TYPE">HOUSEHOLDS BY TYPE</option>
+            <option value="HOUSEHOLDSBYTYPE">HOUSEHOLDS BY TYPE</option>
             <option value="RELATIONSHIP">RELATIONSHIP</option>
             <option value="MARITAL STATUS">MARITAL STATUS</option>
             <option value="FERTILITY">FERTILITY</option>
@@ -84,7 +84,7 @@ role: resource
     </div>
 </div>
 <div class="third-level-container">
-    <div class="HOUSEHOLDS BY TYPE" style="display:none;">
+    <div class="HOUSEHOLDSBYTYPE" style="display:none;">
 		<button id="clickMe" value="https://api.census.gov/data/2016/acs/acs5/profile?get=DP02_0015E,DP02_0014E,DP02_0016E,DP02_0011E,DP02_0010E,DP02_0013E,DP02_0012E,DP02_0005E,DP02_0004E,DP02_0003E,DP02_0002E,DP02_0001E,DP02_0009E,DP02_0008E,DP02_0007E,DP02_0006E&for=tract:*&in=state:47&in=county:065">Get Data</button>
 	</div>
     <div class="RELATIONSHIP" style="display:none;">
@@ -136,3 +136,6 @@ role: resource
 		<button id="clickMe" value="https://api.census.gov/data/2016/acs/acs5/profile?get=DP02_0151E,DP02_0152E,DP02_0150E&for=tract:*&in=state:47&in=county:065">Get Data</button>
 	</div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="../request-builder.js"></script>
