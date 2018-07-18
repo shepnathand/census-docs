@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Data Sources
+title:
 permalink: /data-sources/
-role: resource
 ---
 <div class="data">
   <div class="container">
