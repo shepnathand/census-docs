@@ -16,7 +16,6 @@ The Census API is useful for integrating census data into your website or for re
 
   + [ClearGov: Local Government Transparency & Analytics](http://www.cleargov.com/)
   + [Cornell: Poverty Map](http://pad.human.cornell.edu/Unlisted/uncertaintymap_fullinfo_api_B17001.cfm)
-  + [Demanded](http://app.demanded.io/)
   + [The New Yorker: Inequality and New York's Subway](http://projects.newyorker.com/story/subway/)
   + [U.S. Census Beureau: My Congressional District](https://www.census.gov/mycd/)
 

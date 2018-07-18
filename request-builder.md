@@ -136,6 +136,3 @@ role: resource
 		<button id="clickMe" value="https://api.census.gov/data/2016/acs/acs5/profile?get=DP02_0151E,DP02_0152E,DP02_0150E&for=tract:*&in=state:47&in=county:065">Get Data</button>
 	</div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="../request-builder.js"></script>
