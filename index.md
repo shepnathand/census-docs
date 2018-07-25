@@ -49,10 +49,10 @@ Each ID referes to the table that the data are located in. To find the variable(
 Note that you will want to make a note of the url the variables file is located at.
 
 ### Downloading the Data
-You have a couple of options for downloading data from the Census API. You could either make an HTML request or you could use an API wraper. To use the python [census](https://github.com/datamade/census) API wraper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
+You have a couple of options for downloading data from the Census API. You could either make an HTTP request or you could use an API wraper. To use the python [census](https://github.com/datamade/census) API wraper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
 
-#### HTML Request
-Every HTML request contains:
+#### HTTP Request
+Every HTTP request contains:
 
   + data set location
   + get function
@@ -91,7 +91,7 @@ If you want to view data for every tract in Hamilton County (FIPS Code 065) in T
 [Here](https://www2.census.gov/geo/docs/reference/codes/files/) is a directory of files contating all of the FIPS codes.
 
 ##### API key
-So far our request is a valid HTML request, and it looks like this:
+So far our request is a valid HTTP request, and it looks like this:
 
   `https://api.census.gov/data/2016/acs/acs5?get=B00001_001E,B01001_001E&for=tract:*&in=county:065&in=state:47`
 
@@ -156,7 +156,7 @@ Replace "CENSUS_API_KEY" with your API key, and replace "your_file_name.csv" wit
 
   `python your_py_file_name.py`
 
-and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTML request example!
+and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
 
 ### What's Next?
 Where you go after reading the API Documentation and getting an API Key depends on how you intend to use the data. Here are some places you might want to check out:
