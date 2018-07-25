@@ -130,13 +130,12 @@ Now, create a .py file. Copy the following code into your new .py file:
   `#!/usr/bin/env python`  
 
   `# import the packages you need`  
-  `import os`  
   `from census import Census`  
   `import csv`  
   `import json`  
 
   `# make your request`  
-  `c = Census(os.environ.get('CENSUS_API_KEY'))`  
+  `c = Census('CENSUS_API_KEY')`  
   `variables = ('B00001_001E,B01001_001E')`  
   `request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)`  
 
@@ -151,7 +150,7 @@ Now, create a .py file. Copy the following code into your new .py file:
 
   `# write rows`  
   `for x in x:`  
-  `>>f.writerow([x["B00001_001E"],x["B01001_001E"],x["state"],x["county"],x["tract"]])`  
+  `>>f.writerow([x["unweighted_sample_count_of_population"],x["total_population"],x["state"],x["county"],x["tract"]])`  
 
 Replace "CENSUS_API_KEY" with your API key, and replace "your_file_name.csv" with your file name. Save your .py file. Now, in your terminal type:
 
