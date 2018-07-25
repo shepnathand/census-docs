@@ -7,7 +7,7 @@ layout: default
 <div class="page">
 	</div>
 	<div class="page-content">
-		<div><h2>{{ page.title }}</h2></div>
+		<div><h2 style="display:none;">{{ page.title }}</h2></div>
 		{{ content }}
 		<div class="container">
 			<div class="row posts">
@@ -26,7 +26,7 @@ layout: default
 							{% if post.tags.size > 0 %}
 							tags: 
 							{% for tag in post.tags %}
-							<span id="tag" value="{{ tag }}">{{ tag }}</span><a> </a>
+							<span id="tag" value="{{ tag }}"><a href="#">{{ tag }}</a></span><a> </a>
 							{% endfor %}
 							{% endif %}
 						</div>

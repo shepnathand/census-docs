@@ -49,7 +49,7 @@ Each ID referes to the table that the data are located in. To find the variable(
 Note that you will want to make a note of the url the variables file is located at.
 
 ### Downloading the Data
-You have a couple of options for downloading data from the Census API. You could either make an HTML request or you could use an API wraper. To use the python [census](https://github.com/datamade/census) API wraper, all you need is the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
+You have a couple of options for downloading data from the Census API. You could either make an HTML request or you could use an API wraper. To use the python [census](https://github.com/datamade/census) API wraper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
 
 #### HTML Request
 Every HTML request contains:

@@ -5,8 +5,10 @@
 	{% include header.html %}
 	{%- if page.category != "jekyll update" -%}
 	{%- if page.title != "Blog" -%}
+	{%- if page.title != "Contact" -%}
 	{%- if page.title -%}
 	<div class="page-title"><h2>{{ page.title }}</h2></div>
+	{%- endif -%}
 	{%- endif -%}
 	{%- endif -%}
 	{%- endif -%}
