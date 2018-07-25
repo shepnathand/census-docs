@@ -139,8 +139,8 @@ Now, create a .py file. Copy the following code into your new .py file:
   `variables = ('B00001_001E,B01001_001E')`  
   `request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)`  
 
-  `## convert to csv` 
-  `# load data and new file  
+  `## convert to csv`  
+  `# load data and new file`  
   `data = json.loads(str(request).replace("'",'"'))`  
   `f = csv.writer(open("your_file_name.csv", "w+"))`  
 
