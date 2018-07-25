@@ -134,29 +134,30 @@ Now, create a .py file. Copy the following code into your new .py file:
   `import csv`  
   `import json`  
 
-  `# make your request`  
-  `c = Census('CENSUS_API_KEY')`  
+  `# set variables`  
+  `c = Census('YOUR_API_KEY')`  
   `variables = ('B00001_001E,B01001_001E')`  
   `request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)`  
 
-  `# convert your file to CSV`  
-  `x = str(request)`  
-  `x = x.replace("'",'"')`  
-  `x = json.loads(x)`  
+  `## convert to csv` 
+  `# load data and new file  
+  `data = json.loads(str(request).replace("'",'"'))`  
   `f = csv.writer(open("your_file_name.csv", "w+"))`  
 
-  `# rename columns`  
-  `f.writerow(['B00001_001E', 'B01001_001E', 'state', 'county', 'tract'])`  
+  `# change and re-order column titles`  
+  `f.writerow(['fips_code', 'unweighted_sample_count_of_population', 'total_population',])`  
 
-  `# write rows`  
-  `for x in x:`  
-  `>>f.writerow([x["unweighted_sample_count_of_population"],x["total_population"],x["state"],x["county"],x["tract"]])`  
+  `# re-order columns, concatinate state, county, and tract, and write data to new file`  
+  `for row in data:`  
+  `>>f.writerow([row["state"]+row["county"]+row["tract"], row["B00001_001E"], row["B01001_001E"]])`  
 
-Replace "CENSUS_API_KEY" with your API key, and replace "your_file_name.csv" with your file name. Save your .py file. Now, in your terminal type:
+Replace "YOUR_API_KEY" with your API key, and replace "your_file_name.csv" with your file name. Save your .py file. Now, in your terminal type:
 
   `python your_py_file_name.py`
 
 and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
+
+For a list of supported data sets and additional methods, visit the [census](https://github.com/datamade/census) documentation.
 
 ### What's Next?
 Where you go after reading the API Documentation and getting an API Key depends on how you intend to use the data. Here are some places you might want to check out:
