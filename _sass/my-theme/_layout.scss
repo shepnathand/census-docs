@@ -2,6 +2,46 @@ body, html {
 margin: 0;
 }
 
+.wrapper {
+display: flex;
+width: 100%;
+}
+
+#sidebar {
+position: fixed;
+width: 18%;
+top: 8vh;
+padding-top: 1vh;
+left: 0;
+padding-left: 1vw;
+height: 100vh;
+z-index: 7;
+background: #ffffff;
+border-style:solid;
+border-color: #dfdfdf;
+border-width:2px;
+color: #4a2529;
+transition: all 0.3s;
+font-size: 90%;
+h3,h4,h5 {
+	color: #4a2529;
+}
+h4 {
+	font-size:120%;
+}
+h5 {
+	font-size:100%;
+	margin-left:5%;
+}
+#httpRequestSubmenu {
+	margin-left:10%;
+}
+a {
+text-decoration:none;
+color: #4a2529;
+}
+}
+
 .page-title {
 position: relative;
 margin-top: 2vh;
@@ -71,6 +111,16 @@ background-color: #ffffff;
 z-index: 2;
 }
 
+.home-content {
+position: relative;
+min-height: 100vh;
+padding-top: 3vh;
+margin-left: 20%;
+margin-right: 20%;
+background-color: #ffffff;
+z-index: 2;
+}
+
 .footer {
 position: relative;
 bottom: 0;
@@ -90,21 +140,23 @@ z-index:3;
 /* The image used */
 background-image: url("tn.svg");
 position: relative;
+margin-left:20%;
 opacity: 1;
 background-color: #efefef;
 
 /* Set a specific height */
-min-height: 28vw;
+min-height: 22vw;
 
 /* Create the parallax scrolling effect */
 background-attachment: fixed;
 background-position: center;
 background-position-y: 60px;
+background-position-x: 20vw;
 background-repeat: no-repeat;
-background-size: 98vw;
+background-size: 78vw;
 .caption {
 position: fixed;
-top: 30.75vw;
+top: 24.75vw;
 right: 10px;
 text-align: right;
 color: #777;
@@ -112,8 +164,6 @@ font-size: 1.85vh;
 z-index: 1;
 }
 }
-
-
 
 @media screen and (max-width: 800px) {
 .page, .page-content, .page-title {

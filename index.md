@@ -5,8 +5,15 @@
 layout: home
 ---
 
-# census-docs
-This website documents resources, best-practices, and obstacles pertaining to the US Census API.
+<div style="margin-top:2.5vh;height:32.5vh;">
+  <h1>census-docs</h1>
+  <h3>This website documents</h3>
+  <h3>resources, best-practices,</h3>
+  <h3>and obstacles related to</h3>
+  <h3>the US Census API.</h3>
+</div>
+
+- - - 
 
 ### What is an API?
 An **A**pplication **P**rogramming **I**nterface is a simple way to access/query data directly from the host's servers.
@@ -24,7 +31,7 @@ The Census API is useful for integrating census data into your website or for re
   + [University of Michigan](http://www.psc.isr.umich.edu/dis/data/resource/detail/1457)
   + [U.S. Census Beureau: My Congressional District](https://www.census.gov/mycd/)
 
-### Getting Started
+### API Documentation
 The [Census API Documentation](https://www.census.gov/data/developers/guidance/api-user-guide.What_is_the_API.html) is a good place to start.
 
 Also, if you think you might make more than 500 requests per day, you are going to need an [API key](http://api.census.gov/data/key_signup.html).
