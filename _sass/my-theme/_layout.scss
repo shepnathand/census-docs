@@ -2,6 +2,11 @@ body, html {
 margin: 0;
 }
 
+.header {
+positon:fixed;
+z-index:8;
+}
+
 .wrapper {
 display: flex;
 width: 100%;
@@ -10,11 +15,11 @@ width: 100%;
 #sidebar {
 position: fixed;
 width: 18%;
-top: 8vh;
-padding-top: 1vh;
+top:0px;
 left: 0;
+padding-top: 65px;
 padding-left: 1vw;
-height: 100vh;
+height: 100%;
 z-index: 7;
 background: #ffffff;
 border-style:solid;
@@ -23,6 +28,7 @@ border-width:2px;
 color: #4a2529;
 transition: all 0.3s;
 font-size: 90%;
+overflow-y: scroll;
 h3,h4,h5 {
 	color: #4a2529;
 }
@@ -154,23 +160,34 @@ background-position-y: 60px;
 background-position-x: 20vw;
 background-repeat: no-repeat;
 background-size: 78vw;
-.caption {
-position: fixed;
-top: 24.75vw;
-right: 10px;
-text-align: right;
-color: #777;
-font-size: 1.85vh;
-z-index: 1;
-}
 }
 
+.caption {
+position:fixed;
+right:10px;
+}
+.caption span {
+position: relative;
+bottom:2.2vw;
+padding:2px;
+color: #777;
+height: 22vh;
+line-height: 7vh;
+font-size: 1.8vh;
+text-align: right;
+z-index: 100;
+}
+
+
 @media screen and (max-width: 800px) {
-.page, .page-content, .page-title {
+.page, .page-content, .page-title, .home-content {
 margin: 1%;
 width: 98%; /* The width is 98%, when the viewport is 800px or smaller */
 }
 .parallax {
 min-height: 0vw;
+}
+#sidebar {
+display:none;
 }
 }

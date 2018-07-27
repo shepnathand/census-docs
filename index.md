@@ -5,7 +5,7 @@
 layout: home
 ---
 
-<div style="margin-top:2.5vh;height:32.5vh;">
+<div style="position:relative;margin-top:2.5vh;margin-bottom:25px">
   <h1>census-docs</h1>
   <h3>This website documents</h3>
   <h3>resources, best-practices,</h3>
