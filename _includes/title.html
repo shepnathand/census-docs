@@ -1,3 +1,8 @@
+{% if custom_title %}
+{% assign title = custom_title %}
+{% else %}
+{% assign title = page.title %}
+{% endif %}
 <div class="page-title">
-	<h2>{{ page.title }}</h2>
+	<h2>{{ title }}</h2>
 </div>

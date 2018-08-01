@@ -1,7 +1,7 @@
 ---
-layout: resource
+layout: tool
 title: API Wrappers
 permalink: /wrappers/
 collection: wrappers
-role: resource
+role: tool
 ---

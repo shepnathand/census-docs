@@ -10,54 +10,7 @@ layout: default
 </div>
 <div class="bar1"></div>
 <div class="home wrapper">
-	<nav id="sidebar">
-		<div class="sidebar-header">
-			<h3>Getting Started</h3>
-		</div>
-
-		<ul class="list-unstyled components">
-			<li>
-				<a href="#"><h4>What is an API?</h4></a>
-			</li>
-			<li>
-				<a href="#"><h4>Why use the Census API</h4></a>
-			</li>
-			<li>
-				<a href="#"><h4>Getting Started</h4></a>
-			</li>
-			<li>
-				<a href="#"><h4>Finding Data</h4></a>
-			</li>
-			<li>
-				<a href="#"><h4>Downloading the Data</h4></a>
-				<a href="#httpRequestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="padding-left:5%; font-size:100%;">HTTP Request</a>
-				<ul class="collapse list-unstyled" id="httpRequestSubmenu">
-					<li>
-						<a href="#">dataset location</a>
-					</li>
-					<li>
-						<a href="#">get function</a>
-					</li>
-					<li>
-						<a href="#">geography filters</a>
-					</li>
-					<li>
-						<a href="#">API key</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="#"><h5>Python Census API Wraper</h5></a>
-			</li>
-			<li>
-				<a href="#"><h4>What's Next?</h4></a>
-			</li>
-			<li>
-				<a href="#"><h4>Ready for More?</h4></a>
-			</li>
-		</ul>
-
-	</nav>
+	{% include sidebar.html %}
 	<div class="home-content">
 		{{ content }}
 	</div>

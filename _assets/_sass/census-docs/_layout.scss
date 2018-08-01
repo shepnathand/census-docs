@@ -1,0 +1,185 @@
+.header {
+positon:fixed;
+z-index:8;
+}
+
+.wrapper {
+display: flex;
+width: 100%;
+}
+
+#sidebar {
+position: fixed;
+width: 18%;
+top:0px;
+left: 0;
+padding-top: 65px;
+padding-left: 1vw;
+height: 100%;
+z-index: 7;
+background: #ffffff;
+border-style:solid;
+border-color: #dfdfdf;
+border-width:2px;
+color: #4a2529;
+transition: all 0.3s;
+font-size: 90%;
+overflow-y: scroll;
+h3,h4,h5 {
+	color: #4a2529;
+}
+h4 {
+	font-size:120%;
+}
+h5 {
+	font-size:100%;
+	margin-left:5%;
+}
+#httpRequestSubmenu {
+	margin-left:10%;
+}
+a {
+text-decoration:none;
+color: #4a2529;
+}
+}
+
+.page-title {
+position: relative;
+margin-top: 2vh;
+margin-left: 20%;
+margin-right: 20%;
+background-color: #ffffff;
+}
+
+.home {
+position: relative;
+min-width: 100%;
+min-height:100vh;
+padding:1px;
+background-color: #ffffff;
+z-index: 2;
+}
+
+#tag {
+border:solid;
+border-width:1px;
+border-color:#dfdfdf;
+background-color:#dfdfdf;
+border-radius:5px;
+padding:2px;
+cursor:pointer;
+}
+
+.bar1 {
+position: relative;
+width: 100%;
+height: 2vh;
+background-color: #343a40;
+z-index: 2;
+}
+
+.cover {
+background-color: #efefef;
+border-style: solid;
+border-width: 1px;
+border-color: #dfdfdf;
+}
+
+.postCover {
+background-color: #efefef;
+border-style: solid;
+border-width: 1px;
+border-color: #dfdfdf;
+width: 100%;
+position: relative;
+align: center;
+height: 28vw;
+background-repeat: no-repeat;
+background-size: 98vw;
+}
+
+.page-content {
+position: relative;
+min-height: 100vh;
+padding-top: 3vh;
+margin-left: 20%;
+margin-right: 20%;
+background-color: #ffffff;
+z-index: 2;
+}
+
+.home-content {
+position: relative;
+min-height: 100vh;
+padding-top: 3vh;
+margin-left: 20%;
+margin-right: 20%;
+background-color: #ffffff;
+z-index: 2;
+}
+
+.footer {
+position: relative;
+bottom: 0;
+padding: 0px;
+width: 100%;
+min-height: 200px;
+background-color: #999c9f;
+color: #777;
+z-index:3;
+}
+
+.background {
+	background-color: #efefef;
+}
+
+.parallax {
+/* The image used */
+background-image: url("/media/post_covers/tn.svg");
+position: relative;
+margin-left:20%;
+opacity: 1;
+background-color: #efefef;
+
+/* Set a specific height */
+min-height: 22vw;
+
+/* Create the parallax scrolling effect */
+background-attachment: fixed;
+background-position: center;
+background-position-y: 60px;
+background-position-x: 20vw;
+background-repeat: no-repeat;
+background-size: 78vw;
+}
+
+.caption {
+position:fixed;
+right:10px;
+}
+.caption span {
+position: relative;
+bottom:2.2vw;
+padding:2px;
+color: #777;
+height: 22vh;
+line-height: 7vh;
+font-size: 1.8vh;
+text-align: right;
+z-index: 100;
+}
+
+
+@media screen and (max-width: 800px) {
+.page, .page-content, .page-title, .home-content {
+margin: 1%;
+width: 98%; /* The width is 98%, when the viewport is 800px or smaller */
+}
+.parallax {
+min-height: 0vw;
+}
+#sidebar {
+display:none;
+}
+}

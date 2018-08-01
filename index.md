@@ -1,17 +1,13 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
 
-<div style="position:relative;margin-top:2.5vh;margin-bottom:25px">
-  <h1>census-docs</h1>
-  <h3>This website documents</h3>
-  <h3>resources, best-practices,</h3>
-  <h3>and obstacles related to</h3>
-  <h3>the US Census API.</h3>
-</div>
+
+# census-docs
+### This website documents  
+### resources, best-practices,  
+### and obstacles related to  
+### the US Census API.  
 
 - - - 
 

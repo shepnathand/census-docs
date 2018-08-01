@@ -1,7 +1,7 @@
 ---
-layout: resource
+layout: tool
 title: Reference
 permalink: /reference/
 collection: reference
-role: resource
+role: tool
 ---
