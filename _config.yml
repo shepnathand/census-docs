@@ -29,6 +29,18 @@ plugins:
 
 host: 0.0.0.0
 
+collections_dir: collections
+
+collections:
+  wrappers:
+    output: true
+  mapping:
+    output: false
+  reference:
+    output: false
+  tutorials:
+    output: false
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

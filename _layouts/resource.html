@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% if page.collection %}
+{% assign collection = page.collection %}
+{% case collection %}
+{% when 'wrappers' %}
+{% assign collection = site.wrappers %}
+{% when 'tutorials' %}
+{% assign collection = site.tutorials %}
+{% when 'reference' %}
+{% assign collection = site.reference %}
+{% when 'mapping' %}
+{% assign collection = site.mapping %}
+{% endcase %}
+{% else %}
+No collection defined.
+{% endif %}
+
+{% include title.html %}
+<div class="page">
+	<div class="page-content">
+	{{ content }}
+	{% include cards.html %}
+	</div>
+</div>
