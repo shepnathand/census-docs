@@ -2,22 +2,8 @@
 layout: default
 ---
 
-{% if page.collection %}
-{% assign collection = page.collection %}
-{% case collection %}
-{% when 'wrappers' %}
-{% assign collection = site.wrappers %}
-{% when 'tutorials' %}
-{% assign collection = site.tutorials %}
-{% when 'reference' %}
-{% assign collection = site.reference %}
-{% when 'mapping' %}
-{% assign collection = site.mapping %}
-{% endcase %}
-{% else %}
-No collection defined.
-{% endif %}
-
+{% assign collection = site[page.collection] %}
+{% if collection %}
 {% include title.html %}
 <div class="page">
 	<div class="page-content">
@@ -25,3 +11,6 @@ No collection defined.
 	{% include cards.html %}
 	</div>
 </div>
+{% else %}
+No collection defined.
+{% endif %}
