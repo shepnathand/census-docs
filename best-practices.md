@@ -164,6 +164,6 @@ Where you go after reading the API Documentation and getting an API Key depends 
   + [Website Integration: How to integrate data from the API into your website.](/web-integration/)
 
 ### Ready for More?
-[Finding Stories in Census Data](https://source.opennews.org/articles/finding-stories-census-data/), by Emily Alpert Reyes, is an interesting article on how to find stories using Census data.</p>
+[Finding Stories in Census Data](https://source.opennews.org/articles/finding-stories-census-data/), by Emily Alpert Reyes, is an interesting article on how to find stories using Census data.
 
 Also, here are some [tutorials](/tutorials/).
