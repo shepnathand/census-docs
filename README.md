@@ -1,4 +1,4 @@
 # Census Docs
 
-This site documents best practices, tools, and issues around the U.S. Census Bureau's APIs.
+This site documents best practices, tools, and issues related to the U.S. Census Bureau's APIs.
 
