@@ -50,12 +50,12 @@ You have a couple of options for downloading data from the Census API. You could
 #### HTTP Request
 Every HTTP request contains:
 
-  + data set location
+  + dataset location
   + get function
   + geography filters
   + your API key (optional)
 
-##### data set location
+##### dataset location
 If your variables file is located at "https://api.census.gov/data/2016/acs/acs5/variables.html", the location of your dataset is:
   
   `https://api.census.gov/data/2016/acs/acs5`
@@ -155,7 +155,7 @@ Replace "YOUR_API_KEY" with your API key, and replace "your_file_name.csv" with 
 
 and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
 
-For a list of supported data sets and additional methods, visit the [census](https://github.com/datamade/census) documentation.
+For a list of supported datasets and additional methods, visit the [census](https://github.com/datamade/census) documentation.
 
 ### What's Next?
 Where you go after reading the API Documentation and getting an API Key depends on how you intend to use the data. Here are some places you might want to check out:
