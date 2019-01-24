@@ -1,10 +1,10 @@
 ---
 layout: contact
 title: Contact
-address: Chattanooga, TN 37408
-phone: 423-405-1119
-email: info@metroideas.org
+address: Fort Oglethorpe
+phone: 509-263-3289
+email: 
 permalink: /Contact/
 ---
 
-Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within matter of hours to help you.
+Do you have any questions or suggestions? Please do not hesitate to contact me directly. I will get back to you as soon as I can.
