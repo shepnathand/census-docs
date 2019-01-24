@@ -7,4 +7,4 @@ cover: /media/post_covers/tn.svg
 tags: [ bestpractices, api, census ]
 ---
 
-This is some text.
+This tests how posts look with a cover photo.

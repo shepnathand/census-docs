@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- assign date_format = site.date_format | default: "%-d %b %Y " -%}
-{% capture title %}Posts Tagged: {{ page.tag }}{% endcapture %}
+{% capture custom_title %}Posts Tagged: {{ page.tag }}{% endcapture %}
 
 {% include title.html title=custom_title %}
 <div class="page">

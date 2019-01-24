@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: tag
 title: Issues
-permalink: /known-issues/
+permalink: /tag/issues.html
+tag: issues
 ---
 
