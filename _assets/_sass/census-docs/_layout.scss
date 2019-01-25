@@ -8,6 +8,15 @@ display: flex;
 width: 100%;
 }
 
+#top {
+	overflow-y: hidden;
+}
+
+#topcr {
+	margin-top:-14px;
+	margin-bottom:-16px;
+}
+
 #sidebar {
 position: fixed;
 width: 18%;
