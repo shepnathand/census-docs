@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
-      <ul class="navbar-nav sticky-top d-flex w-50 mr-auto">
+      <ul class="navbar-nav sticky-top d-flex w-80 mr-auto">
         <li class="nav-item active">
           <a class="nav-link" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}<span class="sr-only">(current)</span></a>
         </li>
@@ -13,7 +13,7 @@
         <!-- populate navbar -->
         {%- for path in page_paths -%}
           {%- assign my_page = site.pages | where: "path", path | first -%}
-            {%- if (my_page.title) and (my_page.title != my_page.tag) and (my_page.title != "About") and (my_page.title != "Contact") and (my_page.title != "Blog") and (my_page.role != "tool") -%}
+            {%- if "Blog Issues" contains (my_page.title) -%}
               <li class="nav-item">
                 <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
               </li>
@@ -35,31 +35,5 @@
         </li>
         {%- endif -%}
       </ul>
-      <ul class="nav navbar-nav ml-auto sticky-top w-65 justify-content-end">
-        {%- for path in page_paths -%}
-            {%- assign my_page = site.pages | where: "path", path | first -%}
-            {%- if (my_page.title) and ((my_page.title == "Contact") or (my_page.title == "Blog")) -%}
-              <li class="nav-item">
-                <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-              </li>
-            {% endif %}
-        {% endfor %}
-      </ul>
-        <div id="top">
-          <div id="topcr">
-            <script>
-              (function() {
-                var cx = '016024489793465648841:1cmhhjqwjre';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
-          </div>
-        </div>
     </div>
 </header>

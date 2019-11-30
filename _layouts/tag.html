@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- assign date_format = site.date_format | default: "%-d %b %Y " -%}
-{% capture custom_title %}Posts Tagged: {{ page.tag }}{% endcapture %}
+{% capture custom_title %}{{ page.tag | capitalize }}{% endcapture %}
 
 {% include title.html title=custom_title %}
 <div class="page">
@@ -11,6 +11,10 @@ layout: default
 	<div class="page-content">
 		{{ content }}
 		<div class="container">
+			{% assign psize = site.tags[page.tag] | size %}
+			{% if psize == 0 %} 
+  				<h4>No posts yet. Where there are posts related to this topic, they will show up here.</h4>
+			{% endif %}
 			<div class="row posts">
 				{% for post in site.tags[page.tag] %}
 					{% include post_card.html %}
