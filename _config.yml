@@ -26,6 +26,8 @@ github_username:  shepnathand
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 host: 0.0.0.0
 port: 4000
