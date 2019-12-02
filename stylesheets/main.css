@@ -161,7 +161,7 @@ html, body {
   text-align: right;
   z-index: 100; }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .page, .page-content, .page-title, .home-content {
     margin: 1%;
     width: 98%;
