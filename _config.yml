@@ -18,8 +18,8 @@ email: censusdocs@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A website for documenting resources related to the US Census API.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: shepnathand
+url: "https://census-docs.org" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: CensusDocs
 github_username:  shepnathand
 
 # Build settings
@@ -28,9 +28,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
-host: 0.0.0.0
-port: 4000
 
 collections_dir: collections
 
