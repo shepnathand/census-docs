@@ -4,7 +4,7 @@ title: Best-Practices
 ---
 
 # Best-Practices
-#### Documetation and examples for using the US Census Bureau's API.
+#### Documentation and examples for using the US Census Bureau's API.
 
 ---
 
@@ -22,7 +22,7 @@ The Census API is useful for integrating census data into your website or for re
   + [Missouri’s Office of Social and Economic Data Analysis](http://www.oseda.missouri.edu/)
   + [The New Yorker: Inequality and New York's Subway](http://projects.newyorker.com/story/subway/)
   + [University of Michigan](http://www.psc.isr.umich.edu/dis/data/resource/detail/1457)
-  + [U.S. Census Beureau: My Congressional District](https://www.census.gov/mycd/)
+  + [U.S. Census Bureau: My Congressional District](https://www.census.gov/mycd/)
 
 ### Getting Started
 The [Census API Documentation](https://www.census.gov/data/developers/guidance/api-user-guide.What_is_the_API.html) is a good place to begin.
@@ -39,7 +39,7 @@ Another option is to first find the data you want using FactFinder [Advanced Sea
   + DP = Data Profiles
   + CP = Comparison Profiles
 
-Each ID referes to the table that the data are located in. To find the variable(s) you want, 
+Each ID refers to the table that the data are located in. To find the variable(s) you want, 
 
   1. navigate to the dataset through the [Available API's](https://www.census.gov/data/developers/data-sets.html) page
   2. find the group your ID refers to
@@ -49,7 +49,7 @@ Each ID referes to the table that the data are located in. To find the variable(
 Note that you will want to make a note of the url the variables file is located at.
 
 ### Downloading the Data
-You have a couple of options for downloading data from the Census API. You could either make an HTTP request or you could use an API wraper. An http request is good if you just to download a couple datasets. A wrapper is usefule if you either have to make a lot of requests, or you already intend to use python or R to transform the data. To use the python [census](https://github.com/datamade/census) API wraper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
+You have a couple of options for downloading data from the Census API. You could either make an HTTP request or you could use an API wrapper. An http request is good if you just to download a couple datasets. A wrapper is useful if you either have to make a lot of requests, or you already intend to use python or R to transform the data. To use the python [census](https://github.com/datamade/census) API wrapper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the [FIPS Codes](https://www2.census.gov/geo/docs/reference/codes/files/) for the geography you want.
 
 #### HTTP Request
 Every HTTP request contains:
@@ -67,14 +67,14 @@ If your variables file is located at "https://api.census.gov/data/2016/acs/acs5/
 ##### get function
 A get function has the format:
   
-  `?get=comma,seperated,list,of,variables`
+  `?get=comma,separated,list,of,variables`
 
 Say you chose the variables B00001_001E and B01001_001E (estimate total unweighted sample count of the population and estimate total by sex by age, respectively), then your get function would be:
   
   `?get=B00001_001E,B01001_001E`
 
 ##### geography filters
-Geography filters can contain a for statement and any number of in statements. For the state level, no in statement is nessicary. If you wanted to request at the state level for Tennessee (FIPS code 47), then your geography filter would be:
+Geography filters can contain a for statement and any number of in statements. For the state level, no in statement is necessary. If you wanted to request at the state level for Tennessee (FIPS code 47), then your geography filter would be:
 
   `&for=state:47`
 
@@ -82,13 +82,13 @@ If you wanted to view the county level data for every county in Tennessee, your 
 
   `&for=county:*&in=state:47`
 
-In the *for* statement, you can use * to request all or you can use a comma seperated list. Each *in* statement can only include one geography.
+In the *for* statement, you can use * to request all or you can use a comma separated list. Each *in* statement can only include one geography.
 
 If you want to view data for every tract in Hamilton County (FIPS Code 065) in Tennessee, your geography filter would be:
 
   `&for=tract:*&in=county:065&in=state:47`
 
-[Here](https://www2.census.gov/geo/docs/reference/codes/files/) is a directory of files contating all of the FIPS codes.
+[Here](https://www2.census.gov/geo/docs/reference/codes/files/) is a directory of files containing all of the FIPS codes.
 
 ##### API key
 So far our request is a valid HTTP request, and it looks like this:
@@ -116,8 +116,8 @@ Finally, to get your data:
 
 Your data are ready to use now!
 
-#### Python Census API Wraper
-There are a couple of benifits to using the python wraper, [census](https://github.com/datamade/census). With census, you can make many requests at the same time, you can rename the column headers, you can easily convert the data from JSON to CSV, you can preform transformations on the data, and you can document how you make each request in your scripts. Census is especially useful if you are already planning on using python to work with the data.
+#### Python Census API Wrapper
+There are a couple of benefits to using the python wrapper, [census](https://github.com/datamade/census). With census, you can make many requests at the same time, you can rename the column headers, you can easily convert the data from JSON to CSV, you can preform transformations on the data, and you can document how you make each request in your scripts. Census is especially useful if you are already planning on using python to work with the data.
 
 Before you start making requests using census, you are going to need [python](https://www.python.org/getit/). Once you have python, open a terminal and type
 
@@ -149,7 +149,7 @@ Now, create a .py file. Copy the following code into your new .py file:
   `# change and re-order column titles`  
   `f.writerow(['fips_code', 'unweighted_sample_count_of_population', 'total_population',])`  
 
-  `# re-order columns, concatinate state, county, and tract, and write data to new file`  
+  `# re-order columns, concatenate state, county, and tract, and write data to new file`  
   `for row in data:`  
   `>>f.writerow([row["state"]+row["county"]+row["tract"], row["B00001_001E"], row["B01001_001E"]])`  
 
