@@ -13,7 +13,7 @@ layout: default
 		<div class="container">
 			{% assign psize = site.tags[page.tag] | size %}
 			{% if psize == 0 %} 
-  				<h4>No posts yet. Where there are posts related to this topic, they will show up here.</h4>
+  				<h4>No posts yet. When there are posts tagged <a href='{{ base.url }}/tag/{{ page.tag }}'><i>{{ page.tag }}</i></a>, they will show up here.</h4>
 			{% endif %}
 			<div class="row posts">
 				{% for post in site.tags[page.tag] %}
