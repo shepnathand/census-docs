@@ -12,6 +12,241 @@ layout: default
 <div class="home wrapper">
 	{% include sidebar.html %}
 	<div class="home-content">
-		{{ content }}
+		<section id="Best-Practices">
+			<header> 
+				<h1 id="best-practices">Best-Practices</h1>
+				<h4 id="documentation-and-examples-for-using-the-us-census-bureaus-api">Documentation and examples for using the US Census Bureau’s API.</h4>
+			</header>
+		</section>
+
+		<hr>
+
+		<section id="What_is_an_API?" class="main-section">
+			<header>
+				<h3>What is an API?</h3>
+			</header>
+			<p>An <strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface is a simple way to access/query data directly from the host’s servers.</p>
+		</section>
+
+		<section id="Why_use_the_Census_API?" class="main-section">
+			<header>
+				<h3 id="why-use-the-census-api">Why use the Census API?</h3>
+			</header>
+			<p>The Census API is useful for integrating census data into your website or for requesting a lot of data at once. Here are some examples of how others have used the Census API:</p>
+
+			<ul>
+				<li><a href="http://mcdc.missouri.edu/websas/capsindex.shtml">Circular Area Profiling System</a></li>
+				<li><a href="http://www.cleargov.com/">ClearGov: Local Government Transparency &amp; Analytics</a></li>
+				<li><a href="http://pad.human.cornell.edu/Unlisted/uncertaintymap_fullinfo_api_B17001.cfm">Cornell: Poverty Map</a></li>
+				<li><a href="https://geomap.ffiec.gov/FFIECGeocMap/GeocodeMap1.aspx">Federal Financial Institutions Examination Council</a></li>
+				<li><a href="http://mcdc.missouri.edu/websas/geocorr_index.shtml">MABLE/Geocorr</a></li>
+				<li><a href="http://www.oseda.missouri.edu/">Missouri’s Office of Social and Economic Data Analysis</a></li>
+				<li><a href="http://projects.newyorker.com/story/subway/">The New Yorker: Inequality and New York’s Subway</a></li>
+				<li><a href="http://www.psc.isr.umich.edu/dis/data/resource/detail/1457">University of Michigan</a></li>
+				<li><a href="https://www.census.gov/mycd/">U.S. Census Bureau: My Congressional District</a></li>
+			</ul>
+		</section>
+
+		<section id="Getting_Started" class="main-section">
+			<header>
+				<h3 id="getting-started">Getting Started</h3>
+			</header>
+			<p>The <a href="https://www.census.gov/data/developers/guidance/api-user-guide.What_is_the_API.html">Census API Documentation</a> is a good place to begin.</p>
+
+			<p>Also, if you think you might make more than 500 requests per day, you are going to need an <a href="http://api.census.gov/data/key_signup.html">API key</a>.</p>
+		</section>
+
+		<section id="Finding_Data" class="main-section">
+			<header>
+				<h3 id="finding-data">Finding Data</h3>
+			</header>
+			<p>The Census Bureau’s <a href="https://www.census.gov/data/developers/data-sets.html">Available API’s</a> page is useful for finding the dataset you want. Once you find a dataset, click through the “Tables Variables” files to find what data you are interested in.</p>
+
+			<p>Another option is to first find the data you want using FactFinder <a href="https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t">Advanced Search</a>. In the search results, the “ID” (on the left) is the table or group identification. The dataset is listed on the right. At the beginning of the ID’s:</p>
+
+			<ul>
+				<li>B = Detailed Tables</li>
+				<li>S = Subject Tables</li>
+				<li>DP = Data Profiles</li>
+				<li>CP = Comparison Profiles</li>
+			</ul>
+
+			<p>Each ID refers to the table that the data are located in. To find the variable(s) you want,</p>
+
+			<ol>
+				<li>navigate to the dataset through the <a href="https://www.census.gov/data/developers/data-sets.html">Available API’s</a> page</li>
+				<li>find the group your ID refers to</li>
+				<li>click on the format you desire to view the available variables in</li>
+				<li>browse for the variables that you desire to download</li>
+			</ol>
+
+			<p>Note that you will want to make a note of the url the variables file is located at.</p>
+		</section>
+
+		<section id="Downloading_the_Data" class="main-section">
+			<header>
+				<h3 id="downloading-the-data">Downloading the Data</h3>
+			</header>
+			<p>You have a couple of options for downloading data from the Census API. You could either make an HTTP request or you could use an API wrapper. An http request is good if you just to download a couple datasets. A wrapper is useful if you either have to make a lot of requests, or you already intend to use python or R to transform the data. To use the python <a href="https://github.com/datamade/census">census</a> API wrapper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the <a href="https://www2.census.gov/geo/docs/reference/codes/files/">FIPS Codes</a> for the geography you want.</p>
+
+			<h4 id="http-request">HTTP Request</h4>
+			<p>Every HTTP request contains:</p>
+
+			<ul>
+				<li>dataset location</li>
+				<li>get function</li>
+				<li>geography filters</li>
+				<li>your API key (optional)</li>
+			</ul>
+
+			<h5 id="dataset-location">dataset location</h5>
+			<p>If your variables file is located at “https://api.census.gov/data/2016/acs/acs5/variables.html”, the location of your dataset is:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5</code></p>
+
+			<h5 id="get-function">get function</h5>
+			<p>A get function has the format:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">?get=comma,separated,list,of,variables</code></p>
+
+			<p>Say you chose the variables B00001_001E and B01001_001E (estimate total unweighted sample count of the population and estimate total by sex by age, respectively), then your get function would be:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">?get=B00001_001E,B01001_001E</code></p>
+
+			<h5 id="geography-filters">geography filters</h5>
+			<p>Geography filters can contain a for statement and any number of in statements. For the state level, no in statement is necessary. If you wanted to request at the state level for Tennessee (FIPS code 47), then your geography filter would be:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">&amp;for=state:47</code></p>
+
+			<p>If you wanted to view the county level data for every county in Tennessee, your geography filter would be:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">&amp;for=county:*&amp;in=state:47</code></p>
+
+			<p>In the <em>for</em> statement, you can use * to request all or you can use a comma separated list. Each <em>in</em> statement can only include one geography.</p>
+
+			<p>If you want to view data for every tract in Hamilton County (FIPS Code 065) in Tennessee, your geography filter would be:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
+
+			<p><a href="https://www2.census.gov/geo/docs/reference/codes/files/">Here</a> is a directory of files containing all of the FIPS codes.</p>
+
+			<h5 id="api-key">API key</h5>
+			<p>So far our request is a valid HTTP request, and it looks like this:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5?get=B00001_001E,B01001_001E&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
+
+			<p>To add your API key, you need to add:</p>
+
+			<p><code class="language-plaintext highlighter-rouge">&amp;key=yourApiKey</code></p>
+
+			<p>to the end of your request.</p>
+
+			<h5 id="put-it-together">put it together</h5>
+
+			<p>Finally, to get your data:</p>
+
+			<ol>
+				<li>copy the URL into you navigation bar</li>
+				<li>press enter</li>
+				<li>select all the data</li>
+				<li>go to <a href="http://www.convertcsv.com/json-to-csv.htm">Convert JSON to CSV</a></li>
+				<li>paste the data into the Step 1 Option 3 Text Box</li>
+				<li>select your output options in Step 2</li>
+				<li>click either “Convert JSON to CSV” or “JSON to Excel”</li>
+				<li>click Download Result</li>
+			</ol>
+
+			<p>Your data are ready to use now!</p>
+
+			<h4 id="python-census-api-wrapper">Python Census API Wrapper</h4>
+			<p>There are a couple of benefits to using the python wrapper, <a href="https://github.com/datamade/census">census</a>. With census, you can make many requests at the same time, you can rename the column headers, you can easily convert the data from JSON to CSV, you can preform transformations on the data, and you can document how you make each request in your scripts. Census is especially useful if you are already planning on using python to work with the data.</p>
+
+			<p>Before you start making requests using census, you are going to need <a href="https://www.python.org/getit/">python</a>. Once you have python, open a terminal and type</p>
+
+			<p><code class="language-plaintext highlighter-rouge">python -m pip install census</code></p>
+
+			<p>and</p>
+
+			<p><code class="language-plaintext highlighter-rouge">python -m pip install us</code></p>
+
+			<p>Now, create a .py file. Copy the following code into your new .py file:</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code></p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge"># import the packages you need</code><br>
+				<code class="language-plaintext highlighter-rouge">from census import Census</code><br>
+				<code class="language-plaintext highlighter-rouge">import csv</code><br>
+				<code class="language-plaintext highlighter-rouge">import json</code>
+			</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge"># set variables</code><br>
+				<code class="language-plaintext highlighter-rouge">c = Census('YOUR_API_KEY')</code><br>
+				<code class="language-plaintext highlighter-rouge">variables = ('B00001_001E,B01001_001E')</code><br>
+				<code class="language-plaintext highlighter-rouge">request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)</code>
+			</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge">## convert to csv</code><br>
+				<code class="language-plaintext highlighter-rouge"># load data and new file</code><br>
+				<code class="language-plaintext highlighter-rouge">data = json.loads(str(request).replace("'",'"'))</code><br>
+				<code class="language-plaintext highlighter-rouge">f = csv.writer(open("your_file_name.csv", "w+"))</code>
+			</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge"># change and re-order column titles</code><br>
+				<code class="language-plaintext highlighter-rouge">f.writerow(['fips_code', 'unweighted_sample_count_of_population', 'total_population',])</code>
+			</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge"># re-order columns, concatenate state, county, and tract, and write data to new file</code><br>
+				<code class="language-plaintext highlighter-rouge">for row in data:</code><br>
+				<code class="language-plaintext highlighter-rouge">&gt;&gt;f.writerow([row["state"]+row["county"]+row["tract"], row["B00001_001E"], row["B01001_001E"]])</code>
+			</p>
+
+			<p>
+				Replace “YOUR_API_KEY” with your API key, and replace “your_file_name.csv” with your file name. Save your .py file. Now, in your terminal type:
+			</p>
+
+			<p>
+				<code class="language-plaintext highlighter-rouge">python your_py_file_name.py</code>
+			</p>
+
+			<p>
+				and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
+			</p>
+
+			<p>
+				For a list of supported datasets and additional methods, visit the <a href="https://github.com/datamade/census">census</a> documentation.
+			</p>
+		</section>
+
+		<section id="What_Next?" class="main-section">
+			<header>
+				<h3 id="whats-next">What Next?</h3>
+			</header>
+			<p>Where you go after reading the API Documentation and getting an API Key depends on how you intend to use the data. Here are some places you might want to check out:</p>
+
+			<ul>
+				<li><a href="/mapping/">Mapping: Tutorials on creating maps with ACS data.</a></li>
+				<li><a href="/web-integration/">Website Integration: How to integrate data from the API into your website.</a></li>
+			</ul>
+		</section>
+
+		<section id="Ready_for_More?" class="main-section">
+			<header>
+				<h3 id="ready-for-more">Ready for More?</h3>
+			</header>
+				
+			<p>
+				<a href="https://source.opennews.org/articles/finding-stories-census-data/">Finding Stories in Census Data</a>, by Emily Alpert Reyes, is an interesting article on how to find stories using Census data.
+			</p>
+
+			<p>
+				Also, here are some <a href="/tutorials/">tutorials</a>.
+			</p>
+		</section>
 	</div>
 </div>

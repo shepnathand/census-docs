@@ -5,8 +5,15 @@ html, body {
   positon: fixed;
   z-index: 8; }
 
-.nav-link {
+.navbar-link {
+  color: white;
+  text-decoration: none;
   margin-right: 1rem !important; }
+
+.nav-link {
+  padding: 0px;
+  margin: 0px;
+}
 
 .wrapper {
   display: flex;
@@ -19,7 +26,7 @@ html, body {
   margin-top: -14px;
   margin-bottom: -16px; }
 
-#sidebar {
+#navbar {
   position: fixed;
   width: 18%;
   top: 0px;
@@ -36,16 +43,16 @@ html, body {
   transition: all 0.3s;
   font-size: 90%;
   overflow-y: scroll; }
-  #sidebar h3, #sidebar h4, #sidebar h5 {
+  #navbar h3, #sidebar h4, #sidebar h5 {
     color: #4a2529; }
-  #sidebar h4 {
+  #navbar h4 {
     font-size: 120%; }
-  #sidebar h5 {
+  #navbar h5 {
     font-size: 100%;
     margin-left: 5%; }
-  #sidebar #httpRequestSubmenu {
+  #navbar #httpRequestSubmenu {
     margin-left: 10%; }
-  #sidebar a {
+  #navbar a {
     text-decoration: none;
     color: #4a2529; }
 
@@ -160,6 +167,11 @@ html, body {
   font-size: 1.8vh;
   text-align: right;
   z-index: 100; }
+
+.main-section {
+  padding-top: 40px;
+  margin-bottom: -20px;
+}
 
 @media screen and (max-width: 900px) {
   .page, .page-content, .page-title, .home-content {
