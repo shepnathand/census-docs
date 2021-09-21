@@ -89,138 +89,164 @@ layout: default
 			</header>
 			<p>You have a couple of options for downloading data from the Census API. You could either make an HTTP request or you could use an API wrapper. An http request is good if you just to download a couple datasets. A wrapper is useful if you either have to make a lot of requests, or you already intend to use python or R to transform the data. To use the python <a href="https://github.com/datamade/census">census</a> API wrapper, all you need is your API key, the name and vintage of your dataset, the variables that you want to download, and the <a href="https://www2.census.gov/geo/docs/reference/codes/files/">FIPS Codes</a> for the geography you want.</p>
 
-			<h4 id="http-request">HTTP Request</h4>
-			<p>Every HTTP request contains:</p>
+			<section id="HTTP_Request" class="sub-section">
+				<header>
+					<h4>HTTP Request</h4>
+				</header>
+				<p>Every HTTP request contains:</p>
 
-			<ul>
-				<li>dataset location</li>
-				<li>get function</li>
-				<li>geography filters</li>
-				<li>your API key (optional)</li>
-			</ul>
+				<ul>
+					<li>dataset location</li>
+					<li>get function</li>
+					<li>geography filters</li>
+					<li>your API key (optional)</li>
+				</ul>
+				<section id="dataset_location" class="sub-section">
+					<header>
+						<h5>dataset location</h5>
+					</header>
+					<p>If your variables file is located at “https://api.census.gov/data/2016/acs/acs5/variables.html”, the location of your dataset is:</p>
 
-			<h5 id="dataset-location">dataset location</h5>
-			<p>If your variables file is located at “https://api.census.gov/data/2016/acs/acs5/variables.html”, the location of your dataset is:</p>
+					<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5</code></p>
+				</section>
 
-			<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5</code></p>
+				<section id="get_function" class="sub-section">
+					<header>
+						<h5>get function</h5>
+					</header>
+					<p>A get function has the format:</p>
 
-			<h5 id="get-function">get function</h5>
-			<p>A get function has the format:</p>
+					<p><code class="language-plaintext highlighter-rouge">?get=comma,separated,list,of,variables</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">?get=comma,separated,list,of,variables</code></p>
+					<p>Say you chose the variables B00001_001E and B01001_001E (estimate total unweighted sample count of the population and estimate total by sex by age, respectively), then your get function would be:</p>
 
-			<p>Say you chose the variables B00001_001E and B01001_001E (estimate total unweighted sample count of the population and estimate total by sex by age, respectively), then your get function would be:</p>
+					<p><code class="language-plaintext highlighter-rouge">?get=B00001_001E,B01001_001E</code></p>
+				</section>
 
-			<p><code class="language-plaintext highlighter-rouge">?get=B00001_001E,B01001_001E</code></p>
+				<section id="geography_filters" class="sub-section">
+					<header>
+						<h5>geography filters</h5>
+					</header>
+					<p>Geography filters can contain a for statement and any number of in statements. For the state level, no in statement is necessary. If you wanted to request at the state level for Tennessee (FIPS code 47), then your geography filter would be:</p>
 
-			<h5 id="geography-filters">geography filters</h5>
-			<p>Geography filters can contain a for statement and any number of in statements. For the state level, no in statement is necessary. If you wanted to request at the state level for Tennessee (FIPS code 47), then your geography filter would be:</p>
+					<p><code class="language-plaintext highlighter-rouge">&amp;for=state:47</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">&amp;for=state:47</code></p>
+					<p>If you wanted to view the county level data for every county in Tennessee, your geography filter would be:</p>
 
-			<p>If you wanted to view the county level data for every county in Tennessee, your geography filter would be:</p>
+					<p><code class="language-plaintext highlighter-rouge">&amp;for=county:*&amp;in=state:47</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">&amp;for=county:*&amp;in=state:47</code></p>
+					<p>In the <em>for</em> statement, you can use * to request all or you can use a comma separated list. Each <em>in</em> statement can only include one geography.</p>
 
-			<p>In the <em>for</em> statement, you can use * to request all or you can use a comma separated list. Each <em>in</em> statement can only include one geography.</p>
+					<p>If you want to view data for every tract in Hamilton County (FIPS Code 065) in Tennessee, your geography filter would be:</p>
 
-			<p>If you want to view data for every tract in Hamilton County (FIPS Code 065) in Tennessee, your geography filter would be:</p>
+					<p><code class="language-plaintext highlighter-rouge">&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
+					<p><a href="https://www2.census.gov/geo/docs/reference/codes/files/">Here</a> is a directory of files containing all of the FIPS codes.</p>
+				</section>
 
-			<p><a href="https://www2.census.gov/geo/docs/reference/codes/files/">Here</a> is a directory of files containing all of the FIPS codes.</p>
+				<section id="API_key" class="sub-section">
+					<header>
+						<h5 id="API_key">API key</h5>
+					</header>
+					<p>So far our request is a valid HTTP request, and it looks like this:</p>
 
-			<h5 id="api-key">API key</h5>
-			<p>So far our request is a valid HTTP request, and it looks like this:</p>
+					<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5?get=B00001_001E,B01001_001E&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">https://api.census.gov/data/2016/acs/acs5?get=B00001_001E,B01001_001E&amp;for=tract:*&amp;in=county:065&amp;in=state:47</code></p>
+					<p>To add your API key, you need to add:</p>
 
-			<p>To add your API key, you need to add:</p>
+					<p><code class="language-plaintext highlighter-rouge">&amp;key=yourApiKey</code></p>
 
-			<p><code class="language-plaintext highlighter-rouge">&amp;key=yourApiKey</code></p>
+					<p>to the end of your request.</p>
+				</section>
 
-			<p>to the end of your request.</p>
+				<section id="put_it_together" class="sub-section">
+					<header>
+						<h5>put it together</h5>
+					</header>
+					<p>Finally, to get your data:</p>
 
-			<h5 id="put-it-together">put it together</h5>
+					<ol>
+						<li>copy the URL into you navigation bar</li>
+						<li>press enter</li>
+						<li>select all the data</li>
+						<li>go to <a href="http://www.convertcsv.com/json-to-csv.htm">Convert JSON to CSV</a></li>
+						<li>paste the data into the Step 1 Option 3 Text Box</li>
+						<li>select your output options in Step 2</li>
+						<li>click either “Convert JSON to CSV” or “JSON to Excel”</li>
+						<li>click Download Result</li>
+					</ol>
 
-			<p>Finally, to get your data:</p>
+					<p>Your data are ready to use now!</p>
+				</section>
+			</section>
 
-			<ol>
-				<li>copy the URL into you navigation bar</li>
-				<li>press enter</li>
-				<li>select all the data</li>
-				<li>go to <a href="http://www.convertcsv.com/json-to-csv.htm">Convert JSON to CSV</a></li>
-				<li>paste the data into the Step 1 Option 3 Text Box</li>
-				<li>select your output options in Step 2</li>
-				<li>click either “Convert JSON to CSV” or “JSON to Excel”</li>
-				<li>click Download Result</li>
-			</ol>
+			<section id="Python_Census_API_Wrapper" class="sub-section">
+				<header>
+					<h4>Python Census API Wrapper</h4>
+				</header>
+				<p>There are a couple of benefits to using the python wrapper, <a href="https://github.com/datamade/census">census</a>. With census, you can make many requests at the same time, you can rename the column headers, you can easily convert the data from JSON to CSV, you can preform transformations on the data, and you can document how you make each request in your scripts. Census is especially useful if you are already planning on using python to work with the data.</p>
 
-			<p>Your data are ready to use now!</p>
+				<p>Before you start making requests using census, you are going to need <a href="https://www.python.org/getit/">python</a>. Once you have python, open a terminal and type</p>
 
-			<h4 id="python-census-api-wrapper">Python Census API Wrapper</h4>
-			<p>There are a couple of benefits to using the python wrapper, <a href="https://github.com/datamade/census">census</a>. With census, you can make many requests at the same time, you can rename the column headers, you can easily convert the data from JSON to CSV, you can preform transformations on the data, and you can document how you make each request in your scripts. Census is especially useful if you are already planning on using python to work with the data.</p>
+				<p><code class="language-plaintext highlighter-rouge">python -m pip install census</code></p>
 
-			<p>Before you start making requests using census, you are going to need <a href="https://www.python.org/getit/">python</a>. Once you have python, open a terminal and type</p>
+				<p>and</p>
 
-			<p><code class="language-plaintext highlighter-rouge">python -m pip install census</code></p>
+				<p><code class="language-plaintext highlighter-rouge">python -m pip install us</code></p>
 
-			<p>and</p>
+				<p>Now, create a .py file. Copy the following code into your new .py file:</p>
 
-			<p><code class="language-plaintext highlighter-rouge">python -m pip install us</code></p>
+				<p>
+					<code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code></p>
 
-			<p>Now, create a .py file. Copy the following code into your new .py file:</p>
+				<p>
+					<code class="language-plaintext highlighter-rouge"># import the packages you need</code><br>
+					<code class="language-plaintext highlighter-rouge">from census import Census</code><br>
+					<code class="language-plaintext highlighter-rouge">import csv</code><br>
+					<code class="language-plaintext highlighter-rouge">import json</code>
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code></p>
+				<p>
+					<code class="language-plaintext highlighter-rouge"># set variables</code><br>
+					<code class="language-plaintext highlighter-rouge">c = Census('YOUR_API_KEY')</code><br>
+					<code class="language-plaintext highlighter-rouge">variables = ('B00001_001E,B01001_001E')</code><br>
+					<code class="language-plaintext highlighter-rouge">request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)</code>
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge"># import the packages you need</code><br>
-				<code class="language-plaintext highlighter-rouge">from census import Census</code><br>
-				<code class="language-plaintext highlighter-rouge">import csv</code><br>
-				<code class="language-plaintext highlighter-rouge">import json</code>
-			</p>
+				<p>
+					<code class="language-plaintext highlighter-rouge">## convert to csv</code><br>
+					<code class="language-plaintext highlighter-rouge"># load data and new file</code><br>
+					<code class="language-plaintext highlighter-rouge">data = json.loads(str(request).replace("'",'"'))</code><br>
+					<code class="language-plaintext highlighter-rouge">f = csv.writer(open("your_file_name.csv", "w+"))</code>
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge"># set variables</code><br>
-				<code class="language-plaintext highlighter-rouge">c = Census('YOUR_API_KEY')</code><br>
-				<code class="language-plaintext highlighter-rouge">variables = ('B00001_001E,B01001_001E')</code><br>
-				<code class="language-plaintext highlighter-rouge">request = c.acs5.state_county_tract(variables, '47', '065', Census.ALL)</code>
-			</p>
+				<p>
+					<code class="language-plaintext highlighter-rouge"># change and re-order column titles</code><br>
+					<code class="language-plaintext highlighter-rouge">f.writerow(['fips_code', 'unweighted_sample_count_of_population', 'total_population',])</code>
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge">## convert to csv</code><br>
-				<code class="language-plaintext highlighter-rouge"># load data and new file</code><br>
-				<code class="language-plaintext highlighter-rouge">data = json.loads(str(request).replace("'",'"'))</code><br>
-				<code class="language-plaintext highlighter-rouge">f = csv.writer(open("your_file_name.csv", "w+"))</code>
-			</p>
+				<p>
+					<code class="language-plaintext highlighter-rouge"># re-order columns, concatenate state, county, and tract, and write data to new file</code><br>
+					<code class="language-plaintext highlighter-rouge">for row in data:</code><br>
+					<code class="language-plaintext highlighter-rouge">&gt;&gt;f.writerow([row["state"]+row["county"]+row["tract"], row["B00001_001E"], row["B01001_001E"]])</code>
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge"># change and re-order column titles</code><br>
-				<code class="language-plaintext highlighter-rouge">f.writerow(['fips_code', 'unweighted_sample_count_of_population', 'total_population',])</code>
-			</p>
+				<p>
+					Replace “YOUR_API_KEY” with your API key, and replace “your_file_name.csv” with your file name. Save your .py file. Now, in your terminal type:
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge"># re-order columns, concatenate state, county, and tract, and write data to new file</code><br>
-				<code class="language-plaintext highlighter-rouge">for row in data:</code><br>
-				<code class="language-plaintext highlighter-rouge">&gt;&gt;f.writerow([row["state"]+row["county"]+row["tract"], row["B00001_001E"], row["B01001_001E"]])</code>
-			</p>
+				<p>
+					<code class="language-plaintext highlighter-rouge">python your_py_file_name.py</code>
+				</p>
 
-			<p>
-				Replace “YOUR_API_KEY” with your API key, and replace “your_file_name.csv” with your file name. Save your .py file. Now, in your terminal type:
-			</p>
+				<p>
+					and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
+				</p>
 
-			<p>
-				<code class="language-plaintext highlighter-rouge">python your_py_file_name.py</code>
-			</p>
-
-			<p>
-				and press enter. In your working directory, you should have a new file with the name you specified. If your request was good, the file will contain the same data as we got with the HTTP request example!
-			</p>
-
-			<p>
-				For a list of supported datasets and additional methods, visit the <a href="https://github.com/datamade/census">census</a> documentation.
-			</p>
+				<p>
+					For a list of supported datasets and additional methods, visit the <a href="https://github.com/datamade/census">census</a> documentation.
+				</p>
+			</section>
 		</section>
 
 		<section id="What_Next?" class="main-section">
