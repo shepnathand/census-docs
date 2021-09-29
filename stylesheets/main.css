@@ -43,7 +43,7 @@ html, body {
   transition: all 0.3s;
   font-size: 90%;
   overflow-y: scroll; }
-  #navbar h3, #sidebar h4, #sidebar h5 {
+  #navbar h3, #navbar h4, #navbar h5 {
     color: #4a2529; }
   #navbar h4 {
     font-size: 120%; }
@@ -187,7 +187,7 @@ html, body {
   .parallax {
     min-height: 0vw; }
 
-  #sidebar {
+  #navbar {
     display: none; } }
 /*
  * Social Buttons for Bootstrap
