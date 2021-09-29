@@ -153,7 +153,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: 78vw; }
 
-.caption {
+/*.caption {
   position: fixed;
   right: 10px; }
 
@@ -166,7 +166,7 @@ html, body {
   line-height: 7vh;
   font-size: 1.8vh;
   text-align: right;
-  z-index: 100; }
+  z-index: 100; }*/
 
 .main-section {
   padding-top: 40px;
@@ -185,10 +185,19 @@ html, body {
     /* The width is 98%, when the viewport is 800px or smaller */ }
 
   .parallax {
+    display: none;
     min-height: 0vw; }
 
   #navbar {
-    display: none; } }
+    display: none; } 
+  .
+  bar1 {
+    display: none;
+    overflow: hidden;
+  }
+}
+
+
 /*
  * Social Buttons for Bootstrap
  *
