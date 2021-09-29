@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" rel="author" href='{{ "/" | relative_url }}'>{{ site.title | escape }}<span class="sr-only">(current)</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -6,9 +7,6 @@
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
       <ul class="navbar-nav sticky-top d-flex w-80 mr-auto">
-        <li class="nav-item active">
-          <a class="navbar-link" rel="author" href='{{ "/" | relative_url }}'>{{ site.title | escape }}<span class="sr-only">(current)</span></a>
-        </li>
         {%- if page_paths -%}
         <!-- populate navbar -->
         {%- for path in page_paths -%}
